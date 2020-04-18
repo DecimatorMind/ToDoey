@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class ToDoListViewController: UITableViewController {
-
+    
     var itemArray = [Item]()
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -24,8 +24,9 @@ class ToDoListViewController: UITableViewController {
         loadItems()
         
     }
-
+    
     //MARK: - TableView Data Source Methods
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return itemArray.count
@@ -41,19 +42,19 @@ class ToDoListViewController: UITableViewController {
         cell.textLabel?.text = item.title
         
         cell.accessoryType = item.done ? .checkmark : .none
-    
+        
         return cell
         
     }
-
+    
     
     //MARK: - TableView Delegate Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-//        context.delete(itemArray[indexPath.row])
-//
-//        itemArray.remove(at: indexPath.row)
+        //        context.delete(itemArray[indexPath.row])
+        //
+        //        itemArray.remove(at: indexPath.row)
         
         itemArray[indexPath.row].done = !itemArray[indexPath.row].done
         
@@ -94,7 +95,7 @@ class ToDoListViewController: UITableViewController {
             self.saveItems()
             
         }
-
+        
         alert.addAction(action)
         
         present(alert, animated: true, completion: nil)
@@ -102,24 +103,61 @@ class ToDoListViewController: UITableViewController {
     }
     
     func saveItems(){
-            
-            do {
-                try context.save()
-            } catch {
-                print("error saving context \(error)")
-            }
-            self.tableView.reloadData()
+        
+        do {
+            try context.save()
+        } catch {
+            print("error saving context \(error)")
         }
-
-    func loadItems(){
-        let request : NSFetchRequest<Item> = Item.fetchRequest()
+        self.tableView.reloadData()
+    }
+    
+    func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest()){
+        
         do {
             itemArray = try context.fetch(request)
         } catch {
             print("error fetching data from context \(error)")
         }
+        
+        tableView.reloadData()
     }
+    
+    
+}
 
+//MARK: - Search Bar Delegate Methods
 
+extension ToDoListViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        let request : NSFetchRequest<Item> = Item.fetchRequest()
+        
+        request.predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
+        
+        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+        
+        loadItems(with: request)
+        
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchBar.text?.count == 0 {
+            
+            loadItems()
+            
+            DispatchQueue.main.async {
+                
+                searchBar.resignFirstResponder()
+                
+            }
+            
+        }
+        
+        
+        
+    }
 }
 
