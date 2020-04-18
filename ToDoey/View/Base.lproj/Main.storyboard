@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--ToDoey-->
+        <!--Items-->
         <scene sceneID="lzW-dZ-UF0">
             <objects>
                 <tableViewController id="SoC-2l-RpM" customClass="ToDoListViewController" customModule="ToDoey" customModuleProvider="target" sceneMemberID="viewController">
@@ -37,7 +37,7 @@
                             <outlet property="delegate" destination="SoC-2l-RpM" id="orN-iP-bVK"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="ToDoey" id="yba-yq-YwG">
+                    <navigationItem key="navigationItem" title="Items" id="yba-yq-YwG">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="D0h-PA-CW0">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -72,16 +72,16 @@
             </objects>
             <point key="canvasLocation" x="-478" y="141"/>
         </scene>
-        <!--Table View Controller-->
+        <!--ToDoey-->
         <scene sceneID="g1P-xL-YAe">
             <objects>
-                <tableViewController id="4UJ-yd-IcR" sceneMemberID="viewController">
+                <tableViewController id="4UJ-yd-IcR" customClass="CategoryViewController" customModule="ToDoey" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4L0-U2-bUI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="xJ7-vu-z4n">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" id="xJ7-vu-z4n">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xJ7-vu-z4n" id="kLm-6r-rrR">
@@ -95,7 +95,14 @@
                             <outlet property="delegate" destination="4UJ-yd-IcR" id="9Cx-yo-IO2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ocP-yG-55y"/>
+                    <navigationItem key="navigationItem" title="ToDoey" id="ocP-yG-55y">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wjv-FC-IHj">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="4UJ-yd-IcR" id="Ilo-df-j0q"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="SoC-2l-RpM" kind="show" identifier="goToItems" id="c4s-Vs-GZK"/>
                     </connections>
