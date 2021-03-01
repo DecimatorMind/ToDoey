@@ -11,3 +11,35 @@ forget about tasks left to do.
 The application allows you to add categories, and add to do items to the category.
 The completed tasks can be checked off and deleted.
 The app has been kept simple and colourful.
+
+# File Structure
+
+    └── Todoey-iOS13
+        ├── README.md
+        ├── Todoey
+        │   ├── AppDelegate.swift
+        │   ├── Assets.xcassets
+        │   │   ├── AppIcon.appiconset
+        │   │   │   └── Contents.json
+        │   │   └── Contents.json
+        │   ├── Base.lproj
+        │   │   ├── LaunchScreen.storyboard
+        │   │   └── Main.storyboard
+        │   ├── Info.plist
+        │   └── ToDoListViewController.swift
+        └── Todoey.xcodeproj
+            ├── project.pbxproj
+            ├── project.xcworkspace
+            │   ├── contents.xcworkspacedata
+            │   ├── xcshareddata
+            │   │   └── IDEWorkspaceChecks.plist
+            │   └── xcuserdata
+            │       └── pranjalbhardwaj.xcuserdatad
+            │           └── UserInterfaceState.xcuserstate
+            └── xcuserdata
+                ├── philippmuellauer.xcuserdatad
+                │   └── xcschemes
+                │       └── xcschememanagement.plist
+                └── pranjalbhardwaj.xcuserdatad
+                    └── xcschemes
+                        └── xcschememanagement.plist
