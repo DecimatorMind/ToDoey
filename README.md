@@ -12,7 +12,7 @@ The application allows you to add categories, and add to do items to the categor
 The completed tasks can be checked off and deleted.
 The app has been kept simple and colourful.
 
-# File Structure
+## File Structure
 
     └── Todoey-iOS13
         ├── README.md
