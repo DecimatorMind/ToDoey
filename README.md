@@ -1,3 +1,5 @@
+<img src = "https://img.shields.io/badge/Language-Swift-orange">
+
 # ToDoey
 
 This repository is a project of a course of iOS Development. This is an iOS application and helps one keep track of the daily 
