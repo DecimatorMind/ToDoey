@@ -1,3 +1,5 @@
+[![](https://img.shields.io/github/followers/DecimatorMind?label=Follow&style=social)](https://www.github.com/DecimatorMind)
+
 ![](https://img.shields.io/badge/Author-Pranjal_Bhardwaj-green)![](https://img.shields.io/badge/Language-Swift-orange)![](https://img.shields.io/badge/Language-Xcode-blue)
 
 # ToDoey
